@@ -11,6 +11,8 @@ package glavacevic.view;
  */
 
 
+import glavacevic.model.Grupa;
+import static glavacevic.pomocno.HibernateUtil.getSession;
 import java.awt.Color;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -54,7 +56,8 @@ public class StatistikePanel  extends jcMousePanel{
          setName("Statistike");
 //         repaint();
           RenderChart();
-                
+                 Grupa g = new Grupa();
+
 
     }
     
@@ -71,11 +74,14 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
 
     
     private PieDataset createDataset( ) {
+      Grupa g = new Grupa();
       DefaultPieDataset dataset = new DefaultPieDataset( );
-      dataset.setValue( "Techno" , new Double( 20 ) );  
-      dataset.setValue( "Trance" , new Double( 20 ) );   
-      dataset.setValue( "Electro" , new Double( 40 ) );    
-      dataset.setValue( "Other" , new Double( 10 ) );  
+       int brojZaposlenika = ((Long)getSession().createQuery("select count(*) from Zaposlenik").uniqueResult()).intValue();
+        System.out.println(brojZaposlenika);
+      dataset.setValue( "Broj Zaposlenika" , new Double( brojZaposlenika ) );  
+      dataset.setValue( "1" , new Double( 20 ) );   
+      dataset.setValue( "2" , new Double( 40 ) );    
+      dataset.setValue( "3" , new Double( 10 ) );  
       return dataset;         
    }
     
@@ -119,12 +125,12 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
         jSeparator1 = new javax.swing.JSeparator();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -146,29 +152,28 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(jLabel1)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlChartData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 19, Short.MAX_VALUE)
+                .addComponent(pnlChartData, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(129, 129, 129)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(129, Short.MAX_VALUE)))
+                    .addContainerGap(271, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(pnlChartData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(39, 39, 39))
+                .addComponent(pnlChartData, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(145, 145, 145)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(146, Short.MAX_VALUE)))
+                    .addContainerGap(196, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

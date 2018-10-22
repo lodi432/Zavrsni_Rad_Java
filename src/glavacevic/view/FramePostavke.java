@@ -79,6 +79,7 @@ public class FramePostavke extends javax.swing.JFrame {
         initComponents();
          this.operater = operater;
         setTitle("Edunova APP " + operater.getIme() + " " + operater.getPrezime());
+        Mici2.setVisible(false);
         pnlBash = new BashPanel();
         jToggleButton1.setOpaque(false);
         jToggleButton1.setContentAreaFilled(false);
@@ -146,7 +147,7 @@ public class FramePostavke extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lbl_pomracina = new javax.swing.JLabel();
         VHATNOT = new keeptoo.KGradientPanel();
-        jPanel1 = new javax.swing.JPanel();
+        Mici2 = new javax.swing.JPanel();
         lbl_dot = new javax.swing.JLabel();
         okrug = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -164,8 +165,8 @@ public class FramePostavke extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         pnlDole = new keeptoo.KGradientPanel();
         pnl_sat = new javax.swing.JPanel();
-        lbl_sat = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        lbl_sat = new javax.swing.JLabel();
         lbl_sounder = new javax.swing.JLabel();
         sound1 = new javax.swing.JLabel();
 
@@ -508,35 +509,35 @@ public class FramePostavke extends javax.swing.JFrame {
         VHATNOT.setLayout(null);
         MotherBoard.add(VHATNOT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 81, 131));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setOpaque(false);
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Mici2.setBackground(new java.awt.Color(255, 255, 255));
+        Mici2.setOpaque(false);
+        Mici2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel1MouseEntered(evt);
+                Mici2MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel1MouseExited(evt);
+                Mici2MouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
+                Mici2MousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jPanel1MouseReleased(evt);
+                Mici2MouseReleased(evt);
             }
         });
-        jPanel1.setLayout(null);
+        Mici2.setLayout(null);
 
         lbl_dot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dot.png"))); // NOI18N
-        jPanel1.add(lbl_dot);
+        Mici2.add(lbl_dot);
         lbl_dot.setBounds(2, 10, 11, 10);
 
         okrug.setBackground(new java.awt.Color(255, 255, 255));
         okrug.setForeground(new java.awt.Color(51, 51, 0));
         okrug.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/withoutdot.png"))); // NOI18N
-        jPanel1.add(okrug);
+        Mici2.add(okrug);
         okrug.setBounds(2, 0, 30, 30);
 
-        MotherBoard.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 106, 29, 28));
+        MotherBoard.add(Mici2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 106, 29, 28));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -735,13 +736,6 @@ public class FramePostavke extends javax.swing.JFrame {
             }
         });
         pnl_sat.setLayout(null);
-
-        lbl_sat.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_sat.setForeground(new java.awt.Color(51, 51, 0));
-        lbl_sat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/alarm-clock-2-24.png"))); // NOI18N
-        pnl_sat.add(lbl_sat);
-        lbl_sat.setBounds(0, 0, 30, 24);
-
         pnlDole.add(pnl_sat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, 29, 28));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -761,6 +755,13 @@ public class FramePostavke extends javax.swing.JFrame {
             }
         });
         jPanel3.setLayout(null);
+
+        lbl_sat.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_sat.setForeground(new java.awt.Color(51, 51, 0));
+        lbl_sat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/alarm-clock-2-24.png"))); // NOI18N
+        jPanel3.add(lbl_sat);
+        lbl_sat.setBounds(10, 10, 30, 24);
+
         pnlDole.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, 40, 40));
 
         lbl_sounder.setBackground(new java.awt.Color(0, 0, 0));
@@ -775,7 +776,7 @@ public class FramePostavke extends javax.swing.JFrame {
         sound1.setBackground(new java.awt.Color(255, 255, 255));
         sound1.setForeground(new java.awt.Color(51, 51, 0));
         sound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/audio-add-24.png"))); // NOI18N
-        pnlDole.add(sound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 30, -1));
+        pnlDole.add(sound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 10, 30, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -799,7 +800,7 @@ public class FramePostavke extends javax.swing.JFrame {
     double location = 0;
     String pozicija = "";
 
-    private void jPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseReleased
+    private void Mici2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mici2MouseReleased
 
         AC.jLabelXRight(2, 8, 10, 1, lbl_dot);
 
@@ -837,18 +838,18 @@ public class FramePostavke extends javax.swing.JFrame {
 //                    
 //                    ImageIcon II = new ImageIcon(getClass().getResource("/images/withoutdot.png"));
 //                    okrug.setIcon(II);
-    }//GEN-LAST:event_jPanel1MouseReleased
+    }//GEN-LAST:event_Mici2MouseReleased
     Boolean Entered = false;
-    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+    private void Mici2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mici2MouseEntered
         ImageIcon II = new ImageIcon(getClass().getResource("/images/withoutdotH.png"));
         okrug.setIcon(II);
         Entered = true;
         System.err.println("Evo nas " + Entered);
 
 
-    }//GEN-LAST:event_jPanel1MouseEntered
+    }//GEN-LAST:event_Mici2MouseEntered
 
-    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
+    private void Mici2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mici2MouseExited
         if (Entered) {
 
             System.err.println("DOBILI SMO osmicu kada smo izašli");
@@ -863,8 +864,8 @@ public class FramePostavke extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_jPanel1MouseExited
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+    }//GEN-LAST:event_Mici2MouseExited
+    private void Mici2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mici2MousePressed
 
         if (location != 2) {
 
@@ -882,7 +883,7 @@ public class FramePostavke extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jPanel1MousePressed
+    }//GEN-LAST:event_Mici2MousePressed
 
     private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
         setVisible(false);
@@ -1156,6 +1157,7 @@ public class FramePostavke extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Mici2;
     public static keeptoo.KGradientPanel MotherBoard;
     private keeptoo.KGradientPanel VHATNOT;
     private javax.swing.JLabel jLabel1;
@@ -1174,7 +1176,6 @@ public class FramePostavke extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
