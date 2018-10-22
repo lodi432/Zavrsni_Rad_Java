@@ -42,19 +42,15 @@
     
     
     <!-- moraju se slijedno navesti klase koje su mapirane -->
-    <mapping class="glavacevic.model.Operater" /> 
-    <mapping class="glavacevic.model.Projekt" /> 
-     <mapping class="glavacevic.model.Artist" />
+     <mapping class="glavacevic.model.Operater" /> 
+     <mapping class="glavacevic.model.Projekt" /> 
+     <mapping class="glavacevic.model.Zaposlenik" />
      <mapping class="glavacevic.model.Proizvodac" />
      <mapping class="glavacevic.model.VoziloD" />
      <mapping class="glavacevic.model.Grupa" />
-<!--     <mapping class="glavacevic.model.Orders" />
-     <mapping class="glavacevic.model.OrdersItems" />
-     <mapping class="glavacevic.model.Products" />-->
-       <mapping class="glavacevic.model.Narudzba" />
+     <mapping class="glavacevic.model.Narudzba" />
      <mapping class="glavacevic.model.NarudzbaStavke" />
      <mapping class="glavacevic.model.Proizvod" />
-     
      <mapping class="glavacevic.model.LoggerMe" />
  
 

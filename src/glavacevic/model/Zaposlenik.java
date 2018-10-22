@@ -17,7 +17,7 @@ import static javax.swing.text.StyleConstants.Size;
  */
 @Entity
 
-public class Artist extends Osoba implements Serializable{
+public class Zaposlenik extends Osoba implements Serializable{
     
      private int id;
 
@@ -32,17 +32,6 @@ public class Artist extends Osoba implements Serializable{
 
     public void setDpath(String dpath) {
         this.dpath = dpath;
-    }
-     private String zanrA;
-    
-
-
-    public String getZanrA() {
-        return zanrA;
-    }
-
-    public void setZanrA(String zanrA) {
-        this.zanrA = zanrA;
     }
 
     public int getId() {

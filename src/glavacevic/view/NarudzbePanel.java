@@ -62,16 +62,10 @@ public class NarudzbePanel extends javax.swing.JPanel {
            
            niz[0]= s.getNarudzbaSifra();
            niz[1]= s.getNarudzbaNaziv();
-           niz[2]= s.getNarudzbaEmail();
-           
-//         niz[3]= d.getQuantity();
-              
+           niz[2]= s.getNarudzbaEmail();              
            m.addRow(niz);
            m.setValueAt(s, m.getRowCount()-1, 1);
-                        
-    
 
-//            tblSadrzaj1.repaint();
         }
         
              

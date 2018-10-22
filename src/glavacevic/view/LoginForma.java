@@ -27,6 +27,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+import keeptoo.Drag;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -69,6 +70,7 @@ public class LoginForma extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -76,6 +78,16 @@ public class LoginForma extends javax.swing.JFrame {
         });
 
         login_pozadinskiPanel.setBackground(new java.awt.Color(255, 255, 255));
+        login_pozadinskiPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                login_pozadinskiPanelMouseDragged(evt);
+            }
+        });
+        login_pozadinskiPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                login_pozadinskiPanelMousePressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.CardLayout());
@@ -220,7 +232,7 @@ public class LoginForma extends javax.swing.JFrame {
             .addComponent(login_pozadinskiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(904, 541));
+        setSize(new java.awt.Dimension(888, 502));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
  private void playSound() {
@@ -363,6 +375,16 @@ public class LoginForma extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_txt_usernameKeyPressed
+
+    private void login_pozadinskiPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_pozadinskiPanelMouseDragged
+     
+        
+        new Drag(login_pozadinskiPanel).moveWindow(evt);
+    }//GEN-LAST:event_login_pozadinskiPanelMouseDragged
+
+    private void login_pozadinskiPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_pozadinskiPanelMousePressed
+      new Drag(login_pozadinskiPanel).onPress(evt);
+    }//GEN-LAST:event_login_pozadinskiPanelMousePressed
 
     /**
      * @param args the command line arguments

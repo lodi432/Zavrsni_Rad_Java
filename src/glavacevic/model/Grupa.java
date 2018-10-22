@@ -38,7 +38,7 @@ public class Grupa extends Entitet implements Serializable {
     private Projekt projekt;
        
         @ManyToMany
-    private List<Artist> artisti;
+    private List<Zaposlenik> artisti;
         
          public String getNaziv() {
         return naziv;
@@ -72,11 +72,11 @@ public class Grupa extends Entitet implements Serializable {
         this.projekt = projekt;
     }
 
-    public List<Artist> getPolaznici() {
+    public List<Zaposlenik> getPolaznici() {
         return artisti;
     }
 
-    public void setPolaznici(List<Artist> artisti) {
+    public void setPolaznici(List<Zaposlenik> artisti) {
         this.artisti = artisti;
     }
 

@@ -5,7 +5,7 @@
  */
 package glavacevic.controller;
 
-import glavacevic.model.Artist;
+import glavacevic.model.Zaposlenik;
 import glavacevic.pomocno.EdunovaException;
 import java.util.List;
 
@@ -13,30 +13,30 @@ import java.util.List;
  *
  * @author MacaZekoMiš
  */
-public class ObradaArtist extends ObradaOsoba implements ObradaInterface<Artist> {
+public class ObradaZaposlenik extends ObradaOsoba implements ObradaInterface<Zaposlenik> {
     
     
     
-     public List<Artist> getEntiteti(){
-        return session.createQuery(" from Artist").list();
+     public List<Zaposlenik> getEntiteti(){
+        return session.createQuery(" from Zaposlenik").list();
     }
      
-      public List<Artist> getEntiteti(String uvjet){
-        return session.createQuery(" from Artist e where "
+      public List<Zaposlenik> getEntiteti(String uvjet){
+        return session.createQuery(" from Zaposlenik e where "
                 + " concat(e.ime, ' ', e.prezime) like :uvjet")
                 .setString("uvjet", "%" + uvjet + "%")
                 .list();
     }
     
     @Override
-    public Artist dodaj(Artist e) throws EdunovaException {
+    public Zaposlenik dodaj(Zaposlenik e) throws EdunovaException {
         kontrola(e);
         spremi(e);
         return e;
     }
 
     @Override
-    public Artist promjena(Artist e) throws EdunovaException {
+    public Zaposlenik promjena(Zaposlenik e) throws EdunovaException {
         kontrola(e);
         spremi(e);
         return e;
@@ -45,7 +45,7 @@ public class ObradaArtist extends ObradaOsoba implements ObradaInterface<Artist>
     
     
     
-    private void kontrola(Artist e) throws EdunovaException{
+    private void kontrola(Zaposlenik e) throws EdunovaException{
         
        super.kontrola(e);
        //dodatne kontrole od polaznika

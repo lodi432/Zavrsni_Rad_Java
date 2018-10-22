@@ -7,11 +7,11 @@ package glavacevic.view;
 
 import com.github.lgooddatepicker.components.CalendarPanel;
 import com.github.lgooddatepicker.components.DatePicker;
-import glavacevic.controller.ObradaArtist;
+import glavacevic.controller.ObradaZaposlenik;
 import glavacevic.controller.ObradaGrupa;
 import glavacevic.controller.ObradaProizvodac;
 import glavacevic.controller.ObradaProjekt;
-import glavacevic.model.Artist;
+import glavacevic.model.Zaposlenik;
 import glavacevic.model.Grupa;
 import glavacevic.model.Proizvodac;
 import glavacevic.model.Projekt;
@@ -45,7 +45,7 @@ public class GrupeKPanel extends javax.swing.JPanel {
         private ObradaGrupa obrada;
          private DatePicker datePicker;
          private CalendarPanel calendarPanel;
-          private List<Artist> artistiUBazi;
+          private List<Zaposlenik> artistiUBazi;
     
     public GrupeKPanel() {
         initComponents();
@@ -457,7 +457,7 @@ public class GrupeKPanel extends javax.swing.JPanel {
 
     private void txtUvjetPolaznikKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUvjetPolaznikKeyReleased
 
-        DefaultListModel<Artist> m2 = new DefaultListModel<>();
+        DefaultListModel<Zaposlenik> m2 = new DefaultListModel<>();
 
         artistiUBazi.forEach((s)->{
             if(s.getPrezimeIme().toLowerCase().contains(txtUvjetPolaznik.getText().toLowerCase())){
@@ -474,8 +474,8 @@ public class GrupeKPanel extends javax.swing.JPanel {
       
         Date d = Date.from(datePicker.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
         entitet.setDatumPocetka(d);
-          List<Artist> artisti = new ArrayList<>();
-          DefaultListModel<Artist> m = (DefaultListModel<Artist>)lstPolazniciNaGrupi.getModel();
+          List<Zaposlenik> artisti = new ArrayList<>();
+          DefaultListModel<Zaposlenik> m = (DefaultListModel<Zaposlenik>)lstPolazniciNaGrupi.getModel();
           for(int i=0;i<m.getSize();i++){
               artisti.add(m.getElementAt(i));
           }
@@ -493,9 +493,9 @@ public class GrupeKPanel extends javax.swing.JPanel {
             return;
         }
 
-        Artist p = lstPolazniciUBazi.getSelectedValue();
-        if (!((DefaultListModel<Artist>) lstPolazniciNaGrupi.getModel()).contains(p)){
-            ((DefaultListModel<Artist>)lstPolazniciNaGrupi.getModel()).addElement(p);
+        Zaposlenik p = lstPolazniciUBazi.getSelectedValue();
+        if (!((DefaultListModel<Zaposlenik>) lstPolazniciNaGrupi.getModel()).contains(p)){
+            ((DefaultListModel<Zaposlenik>)lstPolazniciNaGrupi.getModel()).addElement(p);
             lstPolazniciNaGrupi.repaint();
             lstPolazniciNaGrupi.revalidate();
         }
@@ -523,7 +523,7 @@ public class GrupeKPanel extends javax.swing.JPanel {
             return;
         }
 
-            DefaultListModel<Artist> m2 = (DefaultListModel<Artist>)lstPolazniciNaGrupi.getModel();
+            DefaultListModel<Zaposlenik> m2 = (DefaultListModel<Zaposlenik>)lstPolazniciNaGrupi.getModel();
 
         m2.removeElement(lstPolazniciNaGrupi.getSelectedValue());
 
@@ -619,8 +619,8 @@ public class GrupeKPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblNovi;
     private javax.swing.JLabel lblObrisi;
     private javax.swing.JLabel lblPromjena;
-    private javax.swing.JList<Artist> lstPolazniciNaGrupi;
-    private javax.swing.JList<Artist> lstPolazniciUBazi;
+    private javax.swing.JList<Zaposlenik> lstPolazniciNaGrupi;
+    private javax.swing.JList<Zaposlenik> lstPolazniciUBazi;
     private javax.swing.JPanel pnlKalendar;
     private javax.swing.JPanel pnlPodaci;
     private javax.swing.JButton reloadButton2;
@@ -663,7 +663,7 @@ public class GrupeKPanel extends javax.swing.JPanel {
         
         if(entitet.getPolaznici()!=null){
            
-        DefaultListModel<Artist> m2 = new DefaultListModel<>();
+        DefaultListModel<Zaposlenik> m2 = new DefaultListModel<>();
         entitet.getPolaznici().forEach((s)->{
            // System.out.println( s + " - " + s.hashCode());
             m2.addElement(s);});
@@ -713,8 +713,8 @@ public class GrupeKPanel extends javax.swing.JPanel {
         cmbPredavaci.setModel(m1);
         
         
-        ObradaArtist opo = new ObradaArtist();
-        DefaultListModel<Artist> m2 = new DefaultListModel<>();
+        ObradaZaposlenik opo = new ObradaZaposlenik();
+        DefaultListModel<Zaposlenik> m2 = new DefaultListModel<>();
         artistiUBazi = opo.getEntiteti();
         artistiUBazi.forEach((s)->{
            // System.out.println( s + " - " + s.hashCode());

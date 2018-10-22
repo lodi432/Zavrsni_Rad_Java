@@ -5,7 +5,7 @@
  */
 package glavacevic.pomocno;
 
-import glavacevic.model.Artist;
+import glavacevic.model.Zaposlenik;
 import glavacevic.model.Operater;
 import glavacevic.model.Projekt;
 import java.math.BigDecimal;
@@ -25,7 +25,7 @@ public class PocetniInsert {
         kreirajOperatera(session);
         Projekt java = kreirajSmjer(session);
         //Smjer java = session.load(Smjer.class, 2);
-       List<Artist> lista1 = kreirajArtiste(session, 50);
+       List<Zaposlenik> lista1 = kreirajArtiste(session, 50);
         session.getTransaction().commit();
     }
     
@@ -48,11 +48,11 @@ public class PocetniInsert {
     }
       
       
-         private static List<Artist> kreirajArtiste(Session session, int broj) {
-        Artist p;
-        List<Artist> l1 = new ArrayList<>();
+         private static List<Zaposlenik> kreirajArtiste(Session session, int broj) {
+        Zaposlenik p;
+        List<Zaposlenik> l1 = new ArrayList<>();
         for (int i = 0; i < broj; i++) {
-            p = new Artist();
+            p = new Zaposlenik();
             p.setIme(Pomocno.getRandomString());
             p.setPrezime(Pomocno.getRandomString());
             session.save(p);

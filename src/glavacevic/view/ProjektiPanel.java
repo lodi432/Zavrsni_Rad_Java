@@ -7,7 +7,7 @@ package glavacevic.view;
 
 import glavacevic.controller.ObradaProjekt;
 import glavacevic.pomocno.SpremiSliku;
-import glavacevic.model.Artist;
+import glavacevic.model.Zaposlenik;
 import glavacevic.model.Projekt;
 import java.awt.Color;
 import java.awt.Image;
