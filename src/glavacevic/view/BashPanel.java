@@ -6,6 +6,7 @@
 package glavacevic.view;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import javax.swing.JPanel;
@@ -29,7 +30,7 @@ public class BashPanel extends javax.swing.JPanel {
      private JPanel pnlSadrzajko;
  private JPanel pnlVrijemeApi;
  private JPanel pnlProjekti;
-    public BashPanel() {
+    public BashPanel() throws IOException {
          initComponents();
        
         pnlProjekti = new ProjektiPanel();

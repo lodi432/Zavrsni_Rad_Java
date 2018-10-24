@@ -23,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.TimerTask;
@@ -75,7 +76,7 @@ public class FramePostavke extends javax.swing.JFrame {
 //Color navigacija2 = Gradient1x.getBackground();
 
     //goresmo
-    public FramePostavke(Operater operater) {
+    public FramePostavke(Operater operater) throws IOException {
         initComponents();
          this.operater = operater;
         setTitle("Edunova APP " + operater.getIme() + " " + operater.getPrezime());

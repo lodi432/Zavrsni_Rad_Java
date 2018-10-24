@@ -15,10 +15,10 @@ $pdo = new PDO(
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple PHP MYSQL Cart Demo</title>
+	<title>Simple PHP MYSQL Cart</title>
 	
 	<meta name="description" content="Cart demo">
-    <meta name="author" content="Code Boxx">
+  
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<!-- [BOOTSTRAP + JQUERY] -->
@@ -55,7 +55,7 @@ $pdo = new PDO(
 	<!-- [PRODUCTS] -->	
 	<div id="products" class="container"><div class="row"><?php
 	/* [GRAB ALL THE PRODUCTS] */
-	// 3 PRODUCTS IN A ROW
+	// 3 PROIZVODA U REDU
 	$perrow = 3; $now = 0;
 	$stmt = $pdo->query('SELECT * FROM `proizvod`');
 	while ($row = $stmt->fetch()){ ?>
@@ -70,7 +70,7 @@ $pdo = new PDO(
      
 		</div>
 		<?php
-		// ROW BREAK
+		// PREKID REDA
 		$now++;
 		if ($now==3) {
 			echo '</div><div class="row">';

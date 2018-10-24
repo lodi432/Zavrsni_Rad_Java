@@ -1,11 +1,11 @@
 <?php
-// START THE SESSION
+// STARTAJ SESSION
 session_start();
 
 // CONFIGURATION
 require("config.php");
 
-// CONNECT TO DB
+// KONEKCIJA ZA BAZU
 $pdo = new PDO(
 	"mysql:host=$host;dbname=$dbname;charset=$charset", 
 	$user, $password, [
@@ -18,7 +18,7 @@ $pdo = new PDO(
 // PROCESS REQUESTS
 switch ($_POST['request']) {
 	case "add":
-		// ITEMS WILL BE STORED IN THE ORDER OF
+		// ITEMS
 		// $_SESSION['cart'][PRODUCT ID] = QUANTITY
 		if (is_numeric($_SESSION['cart'][$_POST['product_id']])) {
 			$_SESSION['cart'][$_POST['product_id']]++;
@@ -27,7 +27,7 @@ switch ($_POST['request']) {
 		}
 		break;
 
-	// THIS PART COULD BE DONE BETTER BUT I WILL JUST LEAVE IT AS TO SIMPLIFY THINGS
+	// NAPRAVITI IZMJENE
 	case "show":
 		// FETCH PRODUCTS
 		$stmt = $pdo->query('SELECT * FROM `proizvod`');
@@ -36,7 +36,7 @@ switch ($_POST['request']) {
 			$products[$row['product_id']] = $row;
 		}
 
-		// SPIT OUT THE CART IN HTML
+		// PRIKAZI CART U HTML-U
 		$sub = 0;
 		$total = 0; ?>
 		<h1>CART</h1>
@@ -52,7 +52,7 @@ switch ($_POST['request']) {
 				$sub = $qty * $products[$id]['product_price'];
 				$total += $sub;
 
-				// THE PRODUCT
+				// PROIZVOD
 				printf("<tr><td><input id='qty_%u' onchange='qtyCart(%u);' type='text' value='%u'/></td><td>%s</td><td>$%0.2f</td></tr>",
 					$id, $id, $qty,
 					$products[$id]['proizvodNaziv'],
@@ -87,26 +87,26 @@ switch ($_POST['request']) {
 		}
 		break;
 
-	// NO ERROR & SECURITY CHECKS IN THIS SIMPLE EXAMPLE...
-	// BEEF UP THIS SECTION IF YOU WANT
+	// BEZ SIGURNOSNIH PROVJERA U OVOM JEDNOSTAVNOM PRIMJERU
+	// NAPRAVI KONTROLE
 	case "checkout":
-		// CREATE THE ORDER
+		// KREIRAJ NARUDZBU
 		$sql = sprintf("INSERT INTO `narudzba` (`narudzba_naziv`, `narudzba_email`) VALUES ('%s', '%s')", 
 			$_POST['name'], $_POST['email']
 		);
 		$pdo->exec($sql);
 		$last_id = $pdo->lastInsertId();
 
-		// INSERT THE ITEMS
+		// UNESI U NARUDZBU STAVKE
 		$sql = "INSERT INTO `narudzbastavke` (`narudzba_id`, `proizvod_id`, `kolicina`) VALUES ";
 		foreach ($_SESSION['cart'] as $id=>$qty) {
 			$sql .= sprintf("(%u,%u,%u),", $last_id, $id, $qty);
 		}
-		$sql = substr($sql,0,-1);	// STRIP LAST COMMA
+		$sql = substr($sql,0,-1);	// STRIP ZADNJI ZAREZ
 		$sql .= ";";
 		$pdo->exec($sql);
 
-		// CLEAR OUT THE CURRENT CART
+		// CLEAR CART
 		$_SESSION['cart'] = array();
 		break;
 }
