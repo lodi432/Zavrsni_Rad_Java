@@ -22,14 +22,23 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.jdesktop.swingx.JXLabel;
 import AppPackage.AnimationClass;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import glavacevic.pomocno.Pomocno;
 import glavacevic.pomocno.SpremiSliku;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -134,6 +143,7 @@ public class ArtistiPanel extends javax.swing.JPanel {
         btnPromjena = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         GradientPanelArtist.setkEndColor(new java.awt.Color(0, 0, 0));
         GradientPanelArtist.setkStartColor(new java.awt.Color(102, 102, 102));
@@ -382,6 +392,9 @@ public class ArtistiPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Zaposlenik");
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Učitaj sa API-ja");
+
         javax.swing.GroupLayout GradientPanelArtistLayout = new javax.swing.GroupLayout(GradientPanelArtist);
         GradientPanelArtist.setLayout(GradientPanelArtistLayout);
         GradientPanelArtistLayout.setHorizontalGroup(
@@ -407,8 +420,11 @@ public class ArtistiPanel extends javax.swing.JPanel {
                         .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, GradientPanelArtistLayout.createSequentialGroup()
-                                .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(info_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(GradientPanelArtistLayout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(info_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lbl_img2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,11 +442,16 @@ public class ArtistiPanel extends javax.swing.JPanel {
             GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GradientPanelArtistLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(GradientPanelArtistLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(info_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(GradientPanelArtistLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(info_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GradientPanelArtistLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(28, 28, 28)))
                         .addGroup(GradientPanelArtistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(GradientPanelArtistLayout.createSequentialGroup()
                                 .addComponent(btnDodajNovi, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -441,9 +462,8 @@ public class ArtistiPanel extends javax.swing.JPanel {
                             .addComponent(lbl_img2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_slika3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(GradientPanelArtistLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -454,8 +474,8 @@ public class ArtistiPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(pnlPodatci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(241, 241, 241))))
+                            .addComponent(pnlPodatci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -504,9 +524,9 @@ public class ArtistiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_slika3ActionPerformed
 
     private void txtUvjetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUvjetKeyPressed
-        //        if (evt.getKeyCode() == 10) {
-        //            ucitaj();
-        //        }
+                if (evt.getKeyCode() == 10) {
+                    ucitaj();
+                }
     }//GEN-LAST:event_txtUvjetKeyPressed
 
     private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
@@ -752,17 +772,46 @@ public class ArtistiPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jPanel3MouseReleased
 
     private void info_iconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_info_iconMousePressed
-        AC.jTextFieldYUp(160, 0, 10, 1, txtOIB1);
-        AC.jLabelYUp(60, 13, 10, 1, oib_ph);
-       AC.jTextFieldYUp(120, 30, 10, 1, txtNaziv);
-         AC.jTextFieldYUp(120, 30, 10, 1, txtNaziv1);
-        AC.jTextFieldYDown(0, 160, 10, 1, txtOIB1);
-        AC.jLabelYDown(13, 60, 10, 1, oib_ph);
+//        AC.jTextFieldYUp(160, 0, 10, 1, txtOIB1);
+//        AC.jLabelYUp(60, 13, 10, 1, oib_ph);
+//       AC.jTextFieldYUp(120, 30, 10, 1, txtNaziv);
+//         AC.jTextFieldYUp(120, 30, 10, 1, txtNaziv1);
+//        AC.jTextFieldYDown(0, 160, 10, 1, txtOIB1);
+//        AC.jLabelYDown(13, 60, 10, 1, oib_ph);
+//
+//        AC.jTextFieldYUp(160, 0, 10, 1, txtBrojUgovora);
+//        AC.jLabelYUp(60, 13, 10, 1, adresa_ph);
+//        AC.jTextFieldYDown(0, 160, 10, 1, txtBrojUgovora);
+//        AC.jLabelYDown(13, 60, 10, 1, adresa_ph);
 
-        AC.jTextFieldYUp(160, 0, 10, 1, txtBrojUgovora);
-        AC.jLabelYUp(60, 13, 10, 1, adresa_ph);
-        AC.jTextFieldYDown(0, 160, 10, 1, txtBrojUgovora);
-        AC.jLabelYDown(13, 60, 10, 1, adresa_ph);
+  String sURL="";
+        try {
+             URL url = new URL("https://vit.hr/GIP/API/150/json/prvaSlovaVelika");
+        URLConnection conn = url.openConnection();
+try (BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+    sURL = reader.lines().collect(Collectors.joining("\n"));
+}
+        } catch (Exception e) {
+        }
+       
+        
+        Gson gson = new Gson();
+        
+        List<Zaposlenik> lista = gson.fromJson(sURL, new TypeToken<List<Zaposlenik>>(){}.getType());
+       
+        ObradaZaposlenik o = new ObradaZaposlenik();
+        for(Zaposlenik p: lista){
+            try {
+                p.setOib(Pomocno.getRandomString());
+                o.dodaj(p);
+            } catch (EdunovaException e) {
+                System.out.println(e.getPoruka());
+            }
+        }
+        
+                                             
+
+        
     }//GEN-LAST:event_info_iconMousePressed
 
     private void info_iconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_info_iconMouseEntered
@@ -837,6 +886,7 @@ public class ArtistiPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;

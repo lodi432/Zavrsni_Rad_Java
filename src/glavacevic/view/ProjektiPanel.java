@@ -226,6 +226,12 @@ public class ProjektiPanel extends jcMousePanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Search_24px.png"))); // NOI18N
 
+        txtUvjet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUvjetKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlPodaciLayout = new javax.swing.GroupLayout(pnlPodaci);
         pnlPodaci.setLayout(pnlPodaciLayout);
         pnlPodaciLayout.setHorizontalGroup(
@@ -449,6 +455,12 @@ public class ProjektiPanel extends jcMousePanel {
                
         }
     }//GEN-LAST:event_tPaneStateChanged
+
+    private void txtUvjetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUvjetKeyPressed
+        if (evt.getKeyCode() == 10) {
+            ucitajProjekte();
+        }
+    }//GEN-LAST:event_txtUvjetKeyPressed
 
     
     

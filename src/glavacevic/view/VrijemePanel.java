@@ -112,10 +112,11 @@ public class VrijemePanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         vlaga_label = new javax.swing.JLabel();
+        vlaga_label1 = new javax.swing.JLabel();
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Wind_Turbine_24px.png"))); // NOI18N
 
-        kGradientPanel1.setkEndColor(new java.awt.Color(51, 204, 255));
+        kGradientPanel1.setkEndColor(new java.awt.Color(0, 153, 153));
         kGradientPanel1.setkStartColor(new java.awt.Color(51, 0, 102));
 
         vjetar_label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -124,7 +125,7 @@ public class VrijemePanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Partly_Cloudy_Day_24px.png"))); // NOI18N
 
-        temp.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        temp.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         temp.setForeground(new java.awt.Color(255, 255, 255));
         temp.setText("11.0");
 
@@ -135,7 +136,7 @@ public class VrijemePanel extends javax.swing.JPanel {
         jLabel5.setText("Temp");
 
         description_label.setForeground(new java.awt.Color(255, 255, 255));
-        description_label.setText("clear sky");
+        description_label.setText("few clouds");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Wind_Turbine_24px.png"))); // NOI18N
 
@@ -164,6 +165,10 @@ public class VrijemePanel extends javax.swing.JPanel {
         vlaga_label.setForeground(new java.awt.Color(255, 255, 255));
         vlaga_label.setText("80");
 
+        vlaga_label1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        vlaga_label1.setForeground(new java.awt.Color(255, 255, 255));
+        vlaga_label1.setText("%");
+
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
@@ -183,22 +188,26 @@ public class VrijemePanel extends javax.swing.JPanel {
                             .addComponent(jLabel7)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                        .addGap(39, 39, 39)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(vjetar_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(pritisak_label, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                .addComponent(vlaga_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                    .addComponent(vlaga_label, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(vlaga_label1)))
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(temp, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(temp, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(temp1)))
-                        .addGap(74, 74, 74)
-                        .addComponent(description_label, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(temp1)
+                                .addGap(8, 8, 8)))
+                        .addGap(21, 21, 21)
+                        .addComponent(description_label, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(178, 178, 178)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +245,9 @@ public class VrijemePanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(vlaga_label))
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(vlaga_label)
+                        .addComponent(vlaga_label1)))
                 .addContainerGap())
         );
 
@@ -271,5 +282,6 @@ public class VrijemePanel extends javax.swing.JPanel {
     private javax.swing.JLabel temp1;
     private javax.swing.JLabel vjetar_label;
     private javax.swing.JLabel vlaga_label;
+    private javax.swing.JLabel vlaga_label1;
     // End of variables declaration//GEN-END:variables
 }

@@ -77,6 +77,7 @@ public class NarudzbePanel extends javax.swing.JPanel {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSadrzaj1 = new javax.swing.JTable();
+        btnIspisiUgovor = new javax.swing.JButton();
 
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -111,6 +112,14 @@ public class NarudzbePanel extends javax.swing.JPanel {
         tblSadrzaj1.setRowHeight(23);
         jScrollPane3.setViewportView(tblSadrzaj1);
 
+        btnIspisiUgovor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/word-2-24.png"))); // NOI18N
+        btnIspisiUgovor.setText("Ispiši");
+        btnIspisiUgovor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIspisiUgovorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,13 +128,19 @@ public class NarudzbePanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnIspisiUgovor)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(btnIspisiUgovor)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -142,8 +157,13 @@ public class NarudzbePanel extends javax.swing.JPanel {
              popuniTablicu();
     }//GEN-LAST:event_formAncestorAdded
 
+    private void btnIspisiUgovorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIspisiUgovorActionPerformed
+      
+    }//GEN-LAST:event_btnIspisiUgovorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIspisiUgovor;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblSadrzaj1;
     // End of variables declaration//GEN-END:variables
