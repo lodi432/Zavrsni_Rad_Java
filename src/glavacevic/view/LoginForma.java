@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +20,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -256,7 +259,7 @@ public class LoginForma extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_usernameFocusGained
 
-    private void LoginAkcija() {
+    private void LoginAkcija() throws IOException {
 
         Operater o = glavacevic.pomocno.Autorizacija.autoriziraj(txt_username.getText(), txt_password.getPassword());
         if (o == null) {
@@ -271,7 +274,8 @@ public class LoginForma extends javax.swing.JFrame {
     }
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
-        //stariji nacin bez hibernat-a
+        try {
+            //stariji nacin bez hibernat-a
 //        try {
 //            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 //        } catch (Exception ex) {
@@ -315,8 +319,11 @@ public class LoginForma extends javax.swing.JFrame {
 //
 //        } catch (SQLException ex) {
 //            ex.printStackTrace();
-//        }     
-        LoginAkcija();
+//        }
+LoginAkcija();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginForma.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -371,7 +378,11 @@ public class LoginForma extends javax.swing.JFrame {
 
     private void txt_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyPressed
       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            LoginAkcija();
+          try {
+              LoginAkcija();
+          } catch (IOException ex) {
+              Logger.getLogger(LoginForma.class.getName()).log(Level.SEVERE, null, ex);
+          }
 
         }
     }//GEN-LAST:event_txt_usernameKeyPressed

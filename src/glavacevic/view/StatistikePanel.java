@@ -55,8 +55,8 @@ public class StatistikePanel  extends jcMousePanel{
        initComponents();
          setName("Statistike");
 //         repaint();
-          RenderChart();
-                 Grupa g = new Grupa();
+//          RenderChart();
+          
 
 
     }
@@ -74,7 +74,7 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
 
     
     private PieDataset createDataset( ) {
-      Grupa g = new Grupa();
+    
       DefaultPieDataset dataset = new DefaultPieDataset( );
        int brojZaposlenika = ((Long)getSession().createQuery("select count(*) from Zaposlenik").uniqueResult()).intValue();
         System.out.println(brojZaposlenika);
@@ -88,7 +88,7 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
     
     void createDataset( PieDataset dataset ) {
       JFreeChart chart = ChartFactory.createPieChart(      
-         "Mobile Sales",   // chart title 
+         "Sales",   // chart title 
          dataset,          // data    
          true,             // include legend   
          true, 
@@ -96,7 +96,7 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
    }
     
         void RenderChart() {
-//         this.repaint();
+         this.repaint();
             PieDataset ds = createDataset();
         JFreeChart chart = ChartFactory.createPieChart("",ds);
             
@@ -178,7 +178,8 @@ Color trans = new Color(0xFF, 0xFF, 0xFF, 0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
-            
+              RenderChart(); 
+           
     }//GEN-LAST:event_formAncestorAdded
 
     private void pnlChartDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlChartDataMousePressed
