@@ -71,15 +71,15 @@ function qtyCart(id){
 			toggleCart();
 		});
 	} else {
-		alert("Please enter a valid number");
+		alert("Greska.Unesite valjani broj");
 	}
 }
 
 
 function cartCheckout(){
-// cartCheckout() : process checkout
+// cartCheckout() : checkout
 
-	// GET CUSTOMER DETAILS
+	// UZMI DETALJE O KUPCU
 	var name = $('#co_name').val(),
 	    email = $('#co_email').val(),
 		err = "";
@@ -97,8 +97,8 @@ function cartCheckout(){
 				email : email
 			}
 		}).done(function(res) {
-			$('#cart').html("THANK YOU! We have received your order");
-			// OR YOU CAN REDIRECT TO A THANK YOU PAGE
+			$('#cart').html("HVALA VAM! Zaprimili smo vasu narudzbu.");
+			// ILI REDIREKTIRAJ NA THANK YOU PAGE.
 			// window.location="http://site.com/thank-you.php";
 		});
 	} else {
