@@ -1,10 +1,6 @@
 
 ![Screenshot](S2.png)
 
-# DG APP
-
-![Screenshot](S1.png)
-
 DG APP is a database-enabled, online-ready, offline-storage, Java powered standalone Application.
 
   - Insert Employes, managers, products and projects into database
@@ -18,7 +14,8 @@ You can also:
   - Use the application to check the weather in your city.
   - Change the theme of application.
 
-![Screenshot](S5.png)
+![Screenshot](S1.png)
+![Screenshot](S5.jpg)
 
 ### Plugins
 
