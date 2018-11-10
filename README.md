@@ -18,7 +18,7 @@ You can also:
   - Use the application to check the weather in your city.
   - Change the theme of application.
 
-![Screenshot](S2.png)
+![Screenshot](S3.png)
 
 ### Plugins
 
