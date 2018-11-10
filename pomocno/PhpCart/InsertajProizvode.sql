@@ -5,3 +5,8 @@ INSERT INTO `proizvod` (`product_id`, `proizvodNaziv`, `product_image`, `proizvo
 (4, 'Rimac One', 'rimac.jpg', 'Supersportski elektricni automobil Concept One.', '5637820'),
 (5, 'Buggati Veyron', 'veyron.jpg', 'Buggati je supersportski automobil marke Bugatti kojeg proizvodi Volkswagen od 2005.', '9637820'),
 (6, 'YUGO 45', 'yugo.jpg', 'Yugo na solirani pogon.', '12637820');
+
+
+
+
+create database technoj18 character set utf8 collate utf8_general_ci;
