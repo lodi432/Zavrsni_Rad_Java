@@ -7,6 +7,8 @@ DG APP is a database-enabled, online-ready, offline-storage, Java powered standa
   - Insert data online from browser into application
   - Magic
 
+![Screenshot](S5.jpg)
+
 You can also:
   - Import and save Users from Browser, online API, or manually enter them inside application.
   - Insert products and projects and compare them by prices.
@@ -15,7 +17,6 @@ You can also:
   - Change the theme of application.
 
 ![Screenshot](S1.png)
-![Screenshot](S5.jpg)
 
 ### Plugins
 
