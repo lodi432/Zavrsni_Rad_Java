@@ -1,5 +1,5 @@
 
-Edunova zavrsni rad 
+![Screenshot](S2.png)
 
 # DG APP
 
@@ -18,7 +18,7 @@ You can also:
   - Use the application to check the weather in your city.
   - Change the theme of application.
 
-![Screenshot](S3.png)
+![Screenshot](S5.png)
 
 ### Plugins
 
