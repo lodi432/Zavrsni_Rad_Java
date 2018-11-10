@@ -4,7 +4,7 @@
 DG APP is a database-enabled, online-ready, offline-storage, Java powered standalone Application.
 
   - Insert Employes, managers, products and projects into database and assign them by groups.
-  - Insert data online from browser Php form into application.
+  - Insert data online from browser form with PHP and display it into application in real-time.
   - Platform independent meaning that, the application source code can run on all operating systems. 
   - Magic
 
