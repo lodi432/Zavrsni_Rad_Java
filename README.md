@@ -19,6 +19,10 @@ You can also:
 
 ![Screenshot](S1.png)
 
+The application is designed to be installed on devices like tablets, Pc or standalone Raspberry PI devices.
+
+![Screenshot](S4Tb.png)
+
 ### Plugins
 
 DG APP uses a number of open source Jars to work properly:
