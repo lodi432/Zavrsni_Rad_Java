@@ -21,7 +21,7 @@ You can also:
 
 The application is designed to be installed on devices like tablets, Pc or standalone Raspberry PI devices.
 
-![Screenshot](S4Tb.png)
+![Screenshot](S4Tb.jpg)
 
 ### Plugins
 
