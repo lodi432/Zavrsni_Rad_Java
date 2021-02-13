@@ -8,7 +8,7 @@ DG APP is a database-enabled, online-ready, offline-storage, Java powered standa
   - Platform independent meaning that, the application source code can run on all operating systems. 
   - Magic
 
-![Screenshot](S5.jpg)
+
 
 You can also:
   - Import and save Users from Browser, online API, or manually enter them inside application.
